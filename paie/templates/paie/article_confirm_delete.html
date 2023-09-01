@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+<form method="POST">
+          {%  csrf_token %}
+          <hr>
+          <hr>
+          <br>
+          <a href="{% url 'my-articles' %}"><h2 class="mt-5 text-warning">&laquo Go back</h2></a>
+          <p class="mt-5 text-danger" ><strong> Voulez-vous vraiment supprimer cet article? "{{ object }}"</strong></p>
+          <input type="submit" value="Supprimer" class="btn btn-danger me-5">
+          
+      </form>
+    </div>
+{% endblock %}

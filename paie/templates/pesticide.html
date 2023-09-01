@@ -1,0 +1,300 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block body %}
+{% load i18n %}
+
+
+
+<div class="container">
+  <div class="title">{{title}}</div>
+    <div class="row">
+        <div id="carouselExampleControls " class="carousel slide bg-light" data-bs-ride="carousel" style="width: 300px;">
+        <div class="carousel-inner mt-2" style="max-width: 500px;">
+
+      <div class="carousel-item active">
+        <img src="{% static 'img/nytos.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+
+      <div class="carousel-item ">
+        <img src="{% static 'img/epi.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/pestecide.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/phytos11.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item  ">
+        <img src="{% static 'img/tecide.jpg' %}" class="d-block w-15 " alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/confidor.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/valmec.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/movinto.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/karate.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+
+    </div>
+  </div>
+    <hr class="" style="height: 10px;color: darkorange;">
+
+    
+  
+  
+  
+  
+</div>
+
+
+<div class="col text-center">
+  <div class="button-group">
+    <a href="{% url 'display1111' %}" class="btn btn-success btn-md " role="button">Pesticide Ouled berhil + Ouled drisse</a><br>
+    <a href="{% url 'display3333' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide Aoulouz</a>
+    <a href="{% url 'display4444' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide Hawara</a>
+    <!--
+    <a href="{% url 'display2222' %}" class="btn btn-success btn-md " role="button">Pesticide_Driss</a>
+
+    
+
+
+    
+    
+    
+
+<br >
+    
+    <a href="{% url 'display5555' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide_Plombier</a>
+
+    <a href="{% url 'display1012' %}" class="btn btn-success btn-md " role="button">Pesticide_Lglidi</a>
+
+    
+
+    <a href="{% url 'display1011' %}" class="btn btn-success btn-md " role="button">Pesticide_benmbark</a>
+
+    
+
+
+    <a href="{% url 'display1010' %}" class="btn btn-success btn-md" role="button">Pesticide_raisin</a>
+
+    
+    <br >
+<a href="{% url 'display9999' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide_bananier1</a>
+
+    
+    <a href="{% url 'display8888' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide_bananier2</a>
+
+    <a href="{% url 'display7777' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide_zbirate</a>
+
+    
+    <a href="{% url 'display6666' %}" class="btn btn-success btn-md mt-2" role="button">Pesticide_meryem2</a>
+    -->
+  </div>
+  
+</div>
+
+<div class="center text-center">
+  <hr class="mt-2" style="height: 10px;color: rgb(25, 0, 255);">
+  {% if header == "Pesticide_berhils" %}
+  <h2 class="mt-2" style="color: rgb(247, 7, 7);">Domaine : OD berhil + OD drisse</h2>
+  <a href="{% url 'export_mobile1111' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  {% elif header == "Pesticide_drisses" %}
+  <h2 class="mt-2" style="color: rgb(255, 4, 4);">Domaine : Ouled drisse</h2>
+  <a href="{% url 'export_mobile2222' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  {% elif header == "Pesticide_Aoulouzs" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Aoulouz</h2>
+  <a href="{% url 'export_mobile3333' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  {% elif header == "Pesticide Hawara" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaines : Hawara</h2>
+  <a href="{% url 'export_mobile4444' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  {% elif header == "Pesticide_Rgaigues" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Plombier</h2>
+  <a href="{% url 'export_mobile5555' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+
+  {% elif header == "Pesticide_lglidi" %}
+  <h2 class="mt-2" style="color: rgb(247, 7, 7);">Domaine : Lglidi</h2>
+  <a href="{% url 'export_mobile1012' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+  {% elif header == "Pesticide_benmbark" %}
+  <h2 class="mt-2" style="color: rgb(255, 4, 4);">Domaine : Benmbark</h2>
+  <a href="{% url 'export_mobile1011' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+  {% elif header == "Pesticide_raisin" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Raisin</h2>
+  <a href="{% url 'export_mobile1010' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+  {% elif header == "Pesticide_bananier1" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Bananier1</h2>
+  <a href="{% url 'export_mobile9999' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+  
+  {% elif header == "Pesticide_bananier2" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Bananier2</h2>
+  <a href="{% url 'export_mobile8888' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+  {% elif header == "Pesticide_zbirate" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Zbirate</h2>
+  <a href="{% url 'export_mobile7777' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+
+  {% elif header == "Pesticide_maryem2" %}
+  <h2 class="mt-2" style="color: rgb(255, 7, 7);">Domaine : Maryem2</h2>
+  <a href="{% url 'export_mobile6666' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  {% endif %}
+</div>
+  <main role="main" class="container mt-2">
+
+    <div class="bg-light p-1 rounded">
+      
+      <form method='POST' action=''>{% csrf_token %}
+        {{form|crispy}}
+        <input class="mt-2" type="submit" value='Chercher' />
+    </div>
+
+    </form>
+    {% if orderes %}
+    <table class="table table-hover mt-2 ">
+      <thead>
+        <tr>
+         
+          <th>date de mise à jour</th>
+          <th>Category</th>
+          <th>Groupe</th>
+          <th>Entrée</th>
+          <th>Cumul_entrée</th>
+          <th>Sortie</th>
+          <th>Destination</th>
+          <th>Cumul_sortie</th>
+          <th>Stock</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        
+        {% for ordere in orderes %}
+        <tr>
+          {% language 'fr' %}
+         
+          <td>{{ ordere.date|date:"d-m-Y"}}</td>
+          <td>{{ ordere.category}}</td>  
+          <td>{{ ordere.groupe}}</td>        
+          <td>{{ ordere.entree}}</td>
+          <td>{{ ordere.cumul_entree }}</td>
+          <td>{{ ordere.sortie }}</td>
+          <td>{{ ordere.destination }}</td>
+          <td>{{ ordere.cumul_sortie}}</td>
+          <td>{{ ordere.stock }}</td>
+          {% endlanguage %}
+
+          
+
+        {% endfor %}
+        
+      </tbody>
+
+
+
+    </table>
+    
+  </main>
+  
+</div>
+</div>
+{% else %}
+<table class="table table-hover mt-2 ">
+  <thead>
+    <tr>
+     
+      <th>date de mise à jour</th>
+      <th>Category</th>
+      <th>Groupe</th>
+      <th>Entrée</th>
+      <th>Cumul_entrée</th>
+      <th>Sortie</th>
+      <th>Destination</th>
+      <th>Cumul_sortie</th>
+      <th>Stock</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for ordere in orderes %}
+    <tr>
+      {% language 'fr' %}
+     
+      <td>{{ ordere.date|date:"d-m-Y"}}</td>
+      <td>{{ ordere.category}}</td>  
+      <td>{{ ordere.groupe}}</td>        
+      <td>{{ ordere.entree}}</td>
+      <td>{{ ordere.cumul_entree }}</td>
+      <td>{{ ordere.sortie }}</td>
+      <td>{{ ordere.destination }}</td>
+      <td>{{ ordere.cumul_sortie}}</td>
+      <td>{{ ordere.stock }}</td>
+      {% endlanguage %}
+
+      
+
+    {% endfor %}
+    
+  </tbody>
+
+
+
+</table>
+
+</main>
+
+</div>
+</div>
+<p class="col text-center"  style="font-size:100px">&#128578;</p>
+<div id="main-ctr" class="standard">
+  <svg xmlns="http://www.w3.org/2000/svg" width="151" height="110" viewBox="0 0 151 110">
+    <g id="Page-1" fill="none" fill-rule="evenodd">
+      <circle id="face" cx="75" cy="55" r="50" fill="#FFEB97"/>
+      <g id="face-components">
+        <path id="wk-l-eye" stroke="#000" stroke-width="3" d="M55 59.12C55 54.7 51.418 51 47 51s-8 3.7-8 8.12" stroke-linecap="round"/>
+        <path id="wk-r-eye" stroke="#000" stroke-width="3" d="M110 59c0-4.418-3.582-8.12-8-8.12s-8 3.702-8 8.12" stroke-linecap="round"/>
+        <path id="sm-mouth-3" stroke="#000" stroke-width="3" d="M47.34 72.117s6.627 11.526 26.77 11.526 28.482-12.926 28.482-12.926" stroke-linecap="round"/>
+        <path id="hp-love" fill="#F9767E" d="M32.72 45.607h.003L31.42 56.22l-10.612-1.303c-1.4-.167-2.735-.87-3.67-2.07-1.864-2.383-1.44-5.827.944-7.69 1.122-.878 2.48-1.248 3.797-1.146.2-1.34.893-2.608 2.045-3.508 2.384-1.863 5.828-1.44 7.69.945.96 1.226 1.313 2.733 1.106 4.16z"/>
+        <path id="sm-mouth-2" stroke="#000" stroke-width="3" d="M57.786 79.82s12.038 6.573 26.507.926c14.47-5.647 17.3-18.03 17.3-18.03" stroke-linecap="round"/>
+        <path id="sm-mouth-1" stroke="#000" stroke-width="3" d="M63.5 81.903s2.91 2.202 11.502 2.202c8.59 0 11.502-2.202 11.502-2.202" stroke-linecap="round"/>
+        <path id="st-mouth" stroke="#000" stroke-width="3" d="M61.5 76.903h27.003" stroke-linecap="round"/>
+        <path id="st-l-eye" stroke="#000" stroke-width="5" d="M47 63.5c1.38 0 2.5-1.12 2.5-2.503S48.38 58.5 47 58.5s-2.5 1.114-2.5 2.497c0 1.382 1.12 2.503 2.5 2.503z" stroke-linecap="round"/>
+        <path id="st-r-eye" stroke="#000" stroke-width="5" d="M101.5 64c1.38 0 2.5-1.12 2.5-2.503S102.88 59 101.5 59 99 60.114 99 61.497C99 62.88 100.12 64 101.5 64z" stroke-linecap="round"/>
+        <path id="hg-l-eye" stroke="#000" stroke-width="5" d="M47 53.5c1.38 0 2.5-1.12 2.5-2.503S48.38 48.5 47 48.5s-2.5 1.114-2.5 2.497c0 1.382 1.12 2.503 2.5 2.503z" stroke-linecap="round"/>
+        <path id="hg-r-eye" stroke="#000" stroke-width="5" d="M101.5 54c1.38 0 2.5-1.12 2.5-2.503S102.88 49 101.5 49 99 50.114 99 51.497C99 52.88 100.12 54 101.5 54z" stroke-linecap="round"/>
+        <path id="rg-mouth" stroke="#000" stroke-width="3" d="M60.9 79.478s4.24-3.546 13.496-3.546c9.255 0 14.503 3.546 14.503 3.546" stroke-linecap="round"/>
+        <path id="rg-l-eye" stroke="#000" stroke-width="3" d="M39.5 57.5s4.85 1.294 8.11 2.665c3.26 1.372 6.89 3.335 6.89 3.335" stroke-linecap="round"/>
+        <path id="rg-r-eye" stroke="#000" stroke-width="3" d="M108.5 57.5s-4.85 1.294-8.11 2.665C97.13 61.537 93.5 63.5 93.5 63.5" stroke-linecap="round"/>
+        <path id="mouth" stroke="#000" stroke-width="3" d="M61.5 76.903h27.003" stroke-linecap="round"/>
+        <path id="l-eye" stroke="#000" stroke-width="5" d="M47 63.5c1.38 0 2.5-1.12 2.5-2.503S48.38 58.5 47 58.5s-2.5 1.114-2.5 2.497c0 1.382 1.12 2.503 2.5 2.503z" stroke-linecap="round"/>
+        <path id="r-eye" stroke="#000" stroke-width="5" d="M101.5 64c1.38 0 2.5-1.12 2.5-2.503S102.88 59 101.5 59 99 60.114 99 61.497C99 62.88 100.12 64 101.5 64z" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
+  <p>Click the expressions below.</p>
+  <div class="buttons-ctr">
+    <button class="standard active">standard</button>
+    <button class="wink">wink</button>
+    <button class="wink">rage</button>
+    <button class="wink">happy</button>
+  </div>
+</div>
+
+    <h3 class="text-center" style="color: rgb(247, 6, 6);font-size: 150%;">Ce produit n'est pas en stock.</h3><br>
+    <h6 class="text-center" style="color: rgb(5, 41, 247);font-size: 150%;">Merci de consulter la date de la mise à jour.</h6>
+    {% endif %}
+  <hr class="" style="height: 25px;color:rgb(238, 8, 8)">
+{% endblock %}

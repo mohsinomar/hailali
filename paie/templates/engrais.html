@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block body %}
+{% load i18n %}
+
+<div class="container ">
+  <div class="title">{{title}}</div> 
+    <div class="row">       
+          <div id="carouselExampleControls " class="carousel slide bg-light " data-bs-ride="carousel" style="width: 300px;">
+          <div class="carousel-inner mt-2" style="max-width: 500px;" >
+      <div class="carousel-item active ">
+        <img src="{% static 'img/ammon.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/sulfat.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/nitrate.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/chau.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item  ">
+        <img src="{% static 'img/uree.jpg' %}" class="d-block w-15 " alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/urea.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/engrais.jpeg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/fertim.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+      <div class="carousel-item ">
+        <img src="{% static 'img/complet.jpg' %}  " class="d-block w-15" alt="" style="height: 200px;">
+      </div>
+  
+    </div>
+  </div>
+  
+
+<hr class="mt-2" style="width:2080px;height: 20px;">
+
+
+  
+
+  
+  <hr class="" style="height: 10px; color: rgb(49, 139, 13);">
+  
+
+
+
+
+  <div class="col text-center">
+  <div class="button-group">
+    <a href="{% url 'display111' %}" class="btn btn-success btn-md " role="button">Engrais_Ouled berhil+Ouled drisse</a> <br>      
+    <a href="{% url 'display333' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_Aoulouz</a>
+    <a href="{% url 'display444' %}" class="btn btn-success btn-md mt-2" role="button">Engrais Hawara</a>
+
+    <!--
+    <a href="{% url 'display222' %}" class="btn btn-success btn-md " role="button">Engrais_Ouled drisse</a>
+<br >       
+    <a href="{% url 'display555' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_plombier</a>
+    <a href="{% url 'display102' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_Lglidi</a>
+    <a href="{% url 'display101' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_benmbark</a>
+    <a href="{% url 'display100' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_raisin</a>
+    <br >
+    <a href="{% url 'display999' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_Bananier1</a>  
+    <a href="{% url 'display888' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_Bananier2</a>    
+    <a href="{% url 'display777' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_zbirate</a>
+    <a href="{% url 'display666' %}" class="btn btn-success btn-md mt-2" role="button">Engrais_Maryem2</a>
+-->
+    
+    
+
+    
+    
+    
+    
+    
+    <br > 
+        
+    
+        
+    
+</div>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+    
+    
+<hr class="" style="height: 10px;color: rgb(25, 0, 255);">
+  </div>
+  
+  <div class="center text-center">
+    {% if header == "Engrais_berhils" %}
+    <h2 class="text-center mt-2" style="color: rgb(247, 7, 7);">Domaine : OD berhil + OD drisse </h2>
+    
+    <a href="{% url 'export_mobile11' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_drisses" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 4, 4);">Domaine : Ouled drisse</h2>
+    
+    <a href="{% url 'export_mobile22' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+    {% elif header == "Engrais_Aoulouzs" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Aoulouz</h2>
+    
+    <a href="{% url 'export_mobile33' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+    {% elif header == "Engrais Hawara" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaines Hawara</h2>
+    <a href="{% url 'export_mobile44' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+   
+    {% elif header == "Engrais_plombier" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Polombier</h2>
+    <a href="{% url 'export_mobile55' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_maryem2" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Maryem2</h2>
+    <a href="{% url 'export_mobile66' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_zbirate" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Zbirate</h2>
+    <a href="{% url 'export_mobile77' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_bananier2" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Bananier2</h2>
+    <a href="{% url 'export_mobile88' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_bananier1" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Bananier1</h2>
+    <a href="{% url 'export_mobile99' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_raisin" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Raisin</h2>
+    <a href="{% url 'export_mobile10' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_benmbark" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Benmbark</h2>
+    <a href="{% url 'export_mobileb' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    {% elif header == "Engrais_lglidi" %}
+    <h2 class="text-center mt-2" style="color: rgb(255, 7, 7);">Domaine : Lglidi</h2>
+    <a href="{% url 'export_mobile12' %}" class="btn btn-info me-5 mt-5" role="button">Exporter</a>
+  
+    
+  
+  
+    {% endif %}
+  </div>
+  
+
+
+
+
+
+
+  <main role="main" class="container mt-2">
+
+    <div class="bg-light p-1 rounded">
+      
+      <form method='POST' action=''>{% csrf_token %}
+        {{form|crispy}}
+        <input class="mt-2" type="submit" value='Chercher' />
+    </div>
+
+    </form>
+
+    <table class="table table-hover mt-2 ">
+      <thead>
+        <tr>
+         
+          <th>mise à jour</th>
+          <th>Categorie</th>         
+          <th>Entrée</th>
+          <th>Cumul_entrée</th>
+          <th>Sortie</th>
+          <th>Cumul_sortie</th>
+          <th>Stock</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for element in elements %}
+        <tr>
+          {% language 'fr' %}
+          <td>{{ element.date|date:'d F, o'}}</td>
+          <td>{{ element.categorie }}</td>         
+          <td>{{ element.entree}}</td>
+          <td>{{ element.cumul_entree }}</td>
+          <td>{{ element.sortie }}</td>
+          <td>{{ element.cumul_sortie}}</td>
+          <td>{{ element.stock }}</td>
+          {% endlanguage %}
+
+          
+        </tr>
+
+        {% endfor %}
+
+      </tbody>
+
+
+
+    </table>
+  </main>
+  <hr class="" style="height: 25px;color:rgb(238, 8, 8)">
+  <br>
+</div>
+{% endblock %}

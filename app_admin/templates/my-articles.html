@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+<div class="container mt-2">    
+    <div class="row">
+        <div class="title">{{title}}</div>
+            <div class="col-md-12 mt-2 text-center">
+                <hr class=""style="height: 20px;"  >
+                <a href="{% url 'add-pub' %}" class="text-center"><strong>Ajouter un rapport</strong></a>
+                    <br>
+                    <hr class=""style="height: 20px;"  >
+                
+
+            </div>
+            <div class="title mt-2" style="color: black;font-size: 18px;" >Nombre de rapports : ({{ compte }})</div>
+            <main role="main" class="container mt-2">
+
+                <div class="bg-light p-1 rounded">
+                  <a  class="btn btn-info float-right mt-2"><i class="fas fa-plus"></i>Recherche</a>  
+                  <form method='POST' action=''>{% csrf_token %}
+                    {{form|crispy}}
+                    <input class="mt-2" type="submit" value='Chercher' />
+                </div>
+            
+                </form>
+            
+            <div class="col-md-12 mt-2 me-5" >
+                <h2 class="text-center" href ="{% url 'my-articles' %}"></h2>
+                {% if list_articles %}
+                <div class="card" style="background-color: rgb(9, 95, 194);">
+                    <div class="card-body">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr class="h4">
+                                <th>Date de publication</th>
+                                <th>Domaine</th>
+                                <th>Description</th>                                
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                          
+                            {% for item in items %}
+                            <tr>
+                                {% language 'fr' %}
+                                <td class="text-danger"><a href="{% url 'bilan' item.id %}"><strong>{{item.date}}</strong> </a></td>                                
+                                <td class=""><a href="{% url 'bilan' item.id %}"><strong>{{item}}</strong></a></td>
+                                <td class=""><a href="{% url 'bilan' item.id %}"><strong>{{item.description|truncatewords:5}}</strong></a></td>                                                                
+                                
+                                <td>
+                                    
+                                    <a href="{% url 'update-article' item.pk %}" class="btn btn-primary ">Modifier
+                                        </a>
+
+                                    <a href="{% url 'delete-article' item.pk %}" class="btn btn-danger ">Supprimer
+                                        </a>
+
+
+                                </td>
+                                {% endlanguage %}
+                            </tr>
+
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% else %}
+                <h3 class="text-center" style="color: green;font-size: 150%;">Vous n'avez aucun rapport</h3>
+                {% endif %}
+            </div>
+        </main>
+
+        </div>
+    </div>
+</div>
+
+
+
+<br/>
+{% include "pagination.html" %}
+{% endblock %}

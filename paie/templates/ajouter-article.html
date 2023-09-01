@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<hr class="" style="width:2080px;height: 128px;color: green;" >
+<div class="container mt-5">
+          <div class="row">
+                    <div class="col-md-8">
+                              <h2 class ="text-center mt-5 " ><strong style="color: darkmagenta;">Ajouter des rapports</strong></h2>
+                              
+                              <form action="" method="POST" enctype="multipart/form-data"><br>
+                                        {% csrf_token %}
+                                        {{form}}
+
+                                        <button class="btn btn-info me-5 background-color-blue mt-5">Enregistrer</button>
+                              </form>
+                              
+                              
+                    </div>
+          </div>
+</div>
+
+{% endblock %}

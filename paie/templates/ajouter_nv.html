@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<hr class="" style="width:2080px;height: 128px;color: green;" >
+<div class="col text-center">
+<h4 class="  mt-5 md-2"><a href="{% url 'index' %}">&laquo Page précédente</a></h4>
+</div>
+<div class="container">
+          <form method="POST">
+                    <br>
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group row">
+                              <label for="id_{{field.name}}" class="col-2 col-form-label"><strong>{{ field.label}}  : </strong> </label>
+                              <div class="col-10">
+                                        {{ field }}
+                              </div>
+                              
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary" name="button">Ajouter autre dépense</button>
+          </form>
+</div>
+{% endblock %}

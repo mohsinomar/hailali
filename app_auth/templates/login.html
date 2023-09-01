@@ -1,0 +1,83 @@
+{% extends 'base.html'%}
+{% block title %}Connexion au project {% endblock title %}
+
+{% block body%}
+
+<div class="container">
+    <hr class="" style="width:1290px;height: 120px;color: greenyellow;">
+    
+    <div class="col-md-12 mt-5">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-danger text-center"><strong>{{message}}</strong></div>
+        {% endfor %}
+        {% endif %}
+        <div class="title">{{title}}</div>
+        <form action="" method="POST" novalidate> {% csrf_token %}
+            <div class="card">
+                <div class="card-header text-center mt-5" style="color: rgb(58, 6, 247);"><i class="fas fa-user"></i><h2 ><strong>Connexion</strong></h2> </div>
+                <div class="card-body">
+
+                    <label for="id_username"><h2 class="text-danger"> Nom utilisateur</h2></label>
+                    {% if form.username.errors %}
+                    {% for error in form.username.errors %}
+                	<div class="div-error-{{form.username.name}}"><small class="text-danger">{{error}}</small></div>
+                    {% endfor %}
+                    {% endif %}
+                    {{form.username}}
+
+                    <hr>
+                    
+                    
+                    <label for="id_pwd "><h2 class="text-danger">Mot de passe</h2></label >
+                    {% if form.pwd.errors %}
+                    {% for error in form.pwd.errors %}
+                    <div><small class="text-danger">{{error}}</small></div>
+                    				
+                    {%endfor%}
+                    {%endif%}
+                    {{form.pwd}}
+                </div>
+                <div class="card-footer">                    
+                    <button class="btn btn-primary btn-block">Se connecter</button>                    
+                </div>
+              
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+        $(document).ready(function(){
+
+         $('input').keyup(function(){				
+            let textSaisi = $(this).val();				
+            let attrname  = $(this).attr('name');				
+            let validatotElement = ".div-error-"+attrname;				
+            if(textSaisi == ""){				
+                if($(this).hasClass('is-invalid')){				
+                    $(this).addClass('is-invalid');				
+                    $(validatotElement).show();				
+                }				
+            } else {				
+                $(this).removeClass('is-invalid');				
+				
+                $(validatotElement).hide();				
+            }
+         })
+         
+        })			
+
+
+</script>
+{% endblock %}
+
+
+
+
+    
+                                        
+                        

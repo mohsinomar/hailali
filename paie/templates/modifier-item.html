@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container mt-5">
+          <form method="POST">
+                    <br>
+                    {% csrf_token %}
+                    <h4 class="text-danger mt-5">Modifier l'état</h4>
+                    <hr>
+                    <hr>
+                    {% for field in form %}
+                    <div class="form-group row ">
+                              <label for= "id_{{field.name}}" class="col-2 col-form-label ">{{ field.label}}</label>
+                              <div class="col-10">
+                                        {{ field }}
+                              </div>
+                              
+                    </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary" name="button">Modifier l'état de l' employé</button>
+          </form>
+</div>
+{% endblock %}

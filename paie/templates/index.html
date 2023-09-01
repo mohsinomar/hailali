@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block body %}
+<hr class="" style="width:2080px;height: 128px;color: green;" >
+
+<div class="container">
+  
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      
+  <div class="title">{{title}}</div>
+  <hr class="mt-2" style="height: 10px;color: rgb(25, 0, 255);">  
+   <div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" href="{% url 'index' %}" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Main d oeuvre
+      </button>
+      <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton1" >
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display1' %}" ><strong>Ouled berhil</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display2' %}"><strong>Ouled drisse</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display3' %}"><strong>Aoulouz</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display4' %}"><strong>Mariem</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display5' %}"><strong>Plombier</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display6' %}" ><strong>Lglidi</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display7' %}"><strong>Benmbark</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display8' %}"><strong>Raisin</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'display9' %}"><strong>Bananier1</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'displayban2' %}"><strong>Bananier2</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'displayzbi' %}"><strong>Zbirate</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'displaymar' %}"><strong>Maryem2</strong></a></li>
+      </ul>
+    </div> 
+    
+  
+          
+
+          
+          <h4 class=" text-center mt-2" style="color:rgb(255, 0, 13)">Domaine : {{ header }}</h4>
+
+<div class="button-group col text-center ">          
+  
+  {% if header == "Ouled_berhils" %}
+  <a href="{% url 'export_mobile1' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+  
+  {% elif header == "Ouled_drisses" %}
+  <a href="{% url 'export_mobile2' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+  
+  {% elif header == "Aoulouzs" %}
+  <a href="{% url 'export_mobile3' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+  
+  {% elif header == "Mariems" %}
+  <a href="{% url 'export_mobile4' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+ 
+  {% elif header == "Plombier" %}
+  <a href="{% url 'export_mobile5' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+
+
+
+
+  {% elif header == "lglidi" %}
+  <td>
+    <a href="{% url 'export_ouvgli' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  
+  {% elif header == "benmbark" %}
+  <td>
+    <a href="{% url 'export_ouvbenm' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  {% elif header == "zbirate" %}
+  <td>
+    <a href="{% url 'export_ouvzbi' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  {% elif header == "bananier1" %}
+  <td>
+    <a href="{% url 'export_ouvban1' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  
+  {% elif header == "bananier2" %}
+  <td>
+    <a href="{% url 'export_ouvban2' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  {% elif header == "raisin" %}
+  <td>
+    <a href="{% url 'export_ouvrais' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+  
+  </td>
+  {% elif header == "maryem2" %}
+  <td>
+    <a href="{% url 'export_ouvmer' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+    
+  </td>
+  
+  {% endif %}
+
+<table class="table table-hover mt-2 ">
+          <thead>
+            {% if header == "Ouled_berhils" %}
+            <tr>
+              
+              <th>Nom</th>
+              <th>base</th>
+              <th>Lun</th>
+              <th>Mar</th>
+              <th>Mer</th>
+              <th>Jeu</th>
+              <th>Ven</th>
+              <th>Sam</th>
+              <th>Dim</th>
+              <th>NBR_Jrs</th>
+              <th>SLR_base</th>
+              <th>Ancién</th>
+              <th>Prime/fonc</th>
+              <th>Salaire brut</th>
+              <th>Cotis Cnss</th>
+              <th>Cotis Amo</th>
+              <th>Net_à_py</th>
+              
+              
+    </tr>
+            {% elif header == "Ouled_drisses" %}
+            <tr>
+              
+              <th>Nom</th>
+              <th>base</th>
+              <th>Lun</th>
+              <th>Mar</th>
+              <th>Mer</th>
+              <th>Jeu</th>
+              <th>Ven</th>
+              <th>Sam</th>
+              <th>Dim</th>
+              <th>NBR_Jrs</th>
+              <th>SLR_base</th>
+              <th>Ancién</th>
+              <th>Prime/fonc</th>
+              <th>Salaire brut</th>
+              <th>Cotis Cnss</th>
+              <th>Cotis Amo</th>
+              <th>Net_à_py</th>
+              
+              
+    </tr>
+            {% elif header == "Aoulouzs" %}   
+                    <tr>
+                              
+                              <th>Nom</th>
+                              <th>base</th>
+                              <th>Lun</th>
+                              <th>Mar</th>
+                              <th>Mer</th>
+                              <th>Jeu</th>
+                              <th>Ven</th>
+                              <th>Sam</th>
+                              <th>Dim</th>
+                              <th>NBR_Jrs</th>
+                              <th>SLR_base</th>
+                              <th>Ancién</th>
+                              <th>Prime/fonc</th>
+                              <th>Salaire brut</th>
+                              <th>Cotis Cnss</th>
+                              <th>Cotis Amo</th>
+                              <th>Net_à_py</th>
+                              
+                              
+                    </tr>
+                    {% else %}
+                    <tr>
+                      
+                      <th>Nom</th>
+                      <th>base</th>
+                      <th>Jeu</th>
+                      <th>Ven</th>
+                      <th>Sam</th>
+                      <th>Dim</th>
+                      <th>Lun</th>
+                      <th>Mar</th>
+                      <th>Mer</th>
+                      <th>NBR_Jrs</th>
+                      <th>SLR_base</th>
+                      <th>Ancién</th>
+                      <th>Prime/fonc</th>
+                      <th>Salaire brut</th>
+                      <th>Cotis Cnss</th>
+                      <th>Cotis Amo</th>
+                      <th>Net_à_py</th>
+                      
+                      
+            </tr>
+            {% endif%}
+          </thead>
+          <tbody>
+                    {% for item in items %}
+                    <tr>
+                              
+                              <td style="font-size: 120%;color: rgb(5, 1, 247);">{{ item.np }}</td>
+                              <td>{{ item.sdb }}</td>
+                              <td>{{ item.j1}}</td>
+                              <td>{{ item.j2 }}</td>
+                              <td>{{ item.j3 }}</td>
+                              <td>{{ item.j4}}</td>
+                              <td>{{ item.j5 }}</td>
+                              <td>{{ item.j6 }}</td>
+                              <td>{{ item.j7 }}</td>
+                              <td>{{ item.nb_j }}</td>
+                              <td>{{ item.base|floatformat:2 }}</td>
+                              <td>{{ item.ancienneté|floatformat:2 }}</td>
+                              <td>{{ item.pf|floatformat:2 }}</td>
+                              <td>{{ item.sb|floatformat:2 }}</td>
+                              <td>{{ item.cnss|floatformat:2 }}</td>
+                              <td>{{ item.amo|floatformat:2 }}</td>
+                              <td style="font-size: 120%;color: rgb(5, 1, 247);" >{{ item.net_p|floatformat:2 }}</td>
+                              {% if header == "Ouled_berhil" %}
+                              <td><a href="{% url 'delete_desktop' item.pk %}"><img src="{% static 'img/delete.png' %}"></a></td>
+                              
+                              {% endif %}
+                    {% endfor %}
+
+          </tbody>
+          
+ 
+    
+</table>
+
+<hr class="mt-5" style="height: 20px;color:rgb(46, 0, 253) ; ">
+<hr class="" style="height: 20px; color:rgb(4, 0, 255);">
+<h4 class=" text-center mt-2" style="color:rgb(17, 0, 255)"><strong>Liste des achats</strong><br><a style="color:rgb(255, 0, 13)">Domaine : {{ header }}</a></h4>         
+
+          
+
+          <br>
+
+          <div class="button-group col text-center">
+
+                    {% if header == "Ouled_berhils" %}
+                    <a href="{% url 'export_mobile111' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                    <a href="{% url 'ajouter-employé11' %}" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                              
+                    {% elif header == "Ouled_drisses" %}
+                    <a href="{% url 'export_mobile222' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                    <a href="{% url 'ajouter-employé22' %}" class="btn btn-warning mt-5" role="button"><strong>Ajouter une dépense</strong></a>
+                                        
+                    {% elif header == "Aoulouzs" %}
+                    <a href="{% url 'export_mobile333' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                    <a href="{% url 'ajouter-employé33' %}" class="btn btn-warning mt-5" role="button"><strong>Ajouter une dépense</strong></a>
+                                        
+                    {% elif header == "Mariems" %}
+                    <a href="{% url 'export_mobile444' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                    <a href="{% url 'ajouter-employé44' %}" class="btn btn-warning mt-5" role="button"><strong>Ajouter une dépense</strong></a>
+                                        
+                    {% elif header == "Plombier" %}
+                    <a href="{% url 'export_mobile555' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                    <a href="{% url 'ajouter-employé55' %}" class="btn btn-warning mt-5" role="button"><strong>Ajouter une dépense</strong></a>
+                    
+                    
+
+
+                    {% elif header == "lglidi" %}
+                    <td>
+                      <a href="{% url 'export_achatgli' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    
+                    {% elif header == "benmbark" %}
+                    <td>
+                      <a href="{% url 'export_achatbenm' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    {% elif header == "zbirate" %}
+                    <td>
+                      <a href="{% url 'export_achatzbi' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    {% elif header == "bananier1" %}
+                    <td>
+                      <a href="{% url 'export_achatban1' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    
+                    {% elif header == "bananier2" %}
+                    <td>
+                      <a href="{% url 'export_achatban2' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    {% elif header == "raisin" %}
+                    <td>
+                      <a href="{% url 'export_achatrais' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    {% elif header == "maryem2" %}
+                    <td>
+                      <a href="{% url 'export_achatmer' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+                      <a href="" class="btn btn-warning mt-5" role="button" style="text-align: center;"><strong>Ajouter une dépense</strong></a>
+                    </td>
+                    {% endif %}
+
+          </div>
+
+          <table class="table table-hover mt-2">
+                    <thead>
+                              <tr>
+                                        <th><strong>Designation</strong></th>
+                                        <th><strong>Quantité</strong></th>
+                                        <th><strong>Prix_unité (DH)</strong></th>
+                                        <th><strong>Prix_total (DH) </strong></th>
+
+
+
+                              </tr>
+                            
+                            <tbody>
+                                      {% for subject in subjects %}
+        
+                                      <tr>
+                                                <td><strong>{{ subject.desg }}</strong></td>
+                                                <td><strong style="color: darkblue;">{{ subject.Qté|floatformat:2 }}</strong>
+                                                </td>
+                                                <td><strong style="color: darkblue;">{{ subject.pu|floatformat:2}}</strong></td>
+                                                <td><strong style="color: darkblue;">{{ subject.pt|floatformat:2 }} </strong>
+                                                </td>
+        
+                                                
+                                      </tr>
+                                      {% endfor %}
+        
+                            </tbody>
+                            </thead>
+                  </table>
+        
+                  <hr class="" style="height: 25px;color:rgb(238, 8, 8)">
+        </div>
+        </div>
+      </div>
+        
+        
+        {% endblock %}

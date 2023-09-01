@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+
+
+<div class="container">
+  <hr class="" style="height: 128px;color: green;" >
+  <div class="title">{{title}}</div> 
+  <hr class="mt-2" style="height: 10px;color: rgb(25, 0, 255);">
+ 
+    <a href="{% url 'caisse1' %}" class="btn btn-success btn-md " role="button">Gestion du caisse Ouled berhil + Ouled drisse + Aoulouz</a><br>
+ 
+    <a href="{% url 'caisse4' %}" class="btn btn-success btn-md mt-2" role="button">Gestion du caisse Hawara</a>
+   <!--div class="dropdown">
+      <button class="btn btn-primary dropdown-toggle" href="{% url 'caisse' %}" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Gestion des caisses
+      </button>
+      <ul class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton1" >
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse1' %}" ><strong>Od berhil+Aoulouz+Od drisse</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse4' %}"><strong>Mariem</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse5' %}"><strong>Plombier</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse6' %}" ><strong>Lglidi</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse7' %}"><strong>Benmbark</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse8' %}"><strong>Raisin</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse9' %}"><strong>Bananier1</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse10' %}"><strong>Bananier2</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse11' %}"><strong>Zbirate</strong></a></li>
+        <li><a class="dropdown-item" style="color: mediumblue;" href="{% url 'caisse12' %}"><strong>Maryem2</strong></a></li>
+      </ul>
+    </div--> 
+    
+  
+     
+    <h4 class=" text-center mt-2" style="color:rgb(255, 0, 0)">Domaine : {{ header }}</h4>      
+<div class="button-group col text-center ">          
+          
+          {% if header == "OD_berhil --OD_drisse --Aoulouz" %}
+          <a href="{% url 'export_caisse1' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>         
+          {% elif header == "Ouled_drisse" %}
+          <a href="{% url 'export_caisse2' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>          
+          {% elif header == "Aoulouz" %}
+          <a href="{% url 'export_caisse3' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+          {% elif header == "Hawara" %}          
+          <a href="{% url 'export_caisse4' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>         
+          {% elif header == "Plombier" %}
+          <a href="{% url 'export_caisse5' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+          {% elif header == "Lglidi" %}
+          <a href="{% url 'export_caisse6' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>          
+          {% elif header == "Benmbark" %}
+          <a href="{% url 'export_caisse7' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+          {% elif header == "Raisin" %}          
+          <a href="{% url 'export_caisse8' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>         
+          {% elif header == "Bananier1" %}
+          <a href="{% url 'export_caisse9' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+          {% elif header == "Bananier2" %}
+          <a href="{% url 'export_caisse10' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>
+          {% elif header == "Zbirate" %}          
+          <a href="{% url 'export_caisse11' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>         
+          {% elif header == "Maryem2" %}
+          <a href="{% url 'export_caisse12' %}" class="btn btn-info mt-5 me-5" role="button">Exporter</a>                 
+          {% endif %}
+          
+          
+</div>
+
+
+<table class="table table-hover mt-2 ">
+          <thead>
+                    <tr>
+                              
+                              <th style="color: darkblue;">Libelle</th>
+                              <th style="color: darkblue;">Recette</th>
+                              <th style="color: darkblue;">Cumul_recette</th>
+                              <th style="color: darkblue;">Depense</th>
+                              <th style="color: darkblue;">Cumul_depense</th>
+                              <th style="color: darkblue;">Solde</th>
+                    </tr>
+          </thead>
+          <tbody>
+                    {% for item in items %}
+                    <tr>
+                              
+                              <td style="font-size: 120%;color: rgb(212, 19, 19);">{{ item.libelle }}</td>
+                              <td style="font-size: 120%;color: rgb(5, 1, 247);">{{ item.recette |floatformat:2}}</td>
+                              <td>{{ item.cumul_recette|floatformat:2}}</td>
+                              <td>{{ item.depense |floatformat:2}}</td>
+                              <td>{{ item.cumul_depense|floatformat:2 }}</td>
+                              <td>{{ item.solde|floatformat:2}}</td>
+                              
+                             
+                    </tr>
+                    {% endfor %}
+          
+          </tbody>  
+</table>
+
+
+<hr class="" style="height: 25px;color:rgb(238, 8, 8)">
+
+</div>
+
+
+
+{% endblock %}

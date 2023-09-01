@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block body%}
+<hr class="" style="width:2080px;height: 128px;color: green;" >
+
+<div class="container mt-5">
+    <h4 class="  mt-5"><a href="{% url 'my-articles' %}">&laquo Page précédente</a></h4>
+    <div class="row">
+        <div class="col-md-8 mt-6">
+            
+            <hr style="color: red; height: 7px;">
+            <div class="title">{{title}}</div>
+            <hr style="color: red;height: 4px;">
+            <h2 class="mt-2" style="color: darkblue;">{{article.titre}}- le {{article.date}} </h2><br>
+            
+            
+            
+            <a style="font-size: 300%;">{{article.description|linebreaks}}</a>
+        </div>
+       
+    </div>
+
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block body%}
+{% load i18n %}
+
+
+<hr class="" style="width:2080px;height: 128px;color: green;" >
+
+<div class="container">
+    <div class="title">{{title}}</div>
+    <hr style="color: red; height: 7px;">
+          
+
+
+
+    
+    <div class="row">
+        {%for item in items%}
+        <div class="col-12 col-md-6 mt-5 me-5  col-lg-3 col-xl-3 ">
+            <div class="card-body">
+            
+                    <h4 class="card-title"><a href="{% url 'detail' item.pk %}">{{  item.titre}}-  le {{item.date}}</a></h4> 
+                    
+
+                                 
+                            
+        </div>            
+                    {% language 'fr' %}
+                    <p class="card-text" ><strong>{{item.description|truncatewords:5}}</strong></p>
+                    <hr>
+                    <a class="card-text" style="color:rgb(12, 8, 248)">Publié il y a {{item.created_at|timesince}}</a> <br>
+                    <a class="card-text" style="color:rgb(248, 8, 8)">par : {{  item.user}}</a><br>
+                    <a href="{% url 'detail' item.pk %}" class="btn btn-primary mt-2"style="color:yellow">Lire le rapport</a>
+                    {% endlanguage %}
+                    <hr style="height: 7px;">  
+                </div>
+         {% empty %}      
+         <h4 class="card-title"><a href="">Vous n avez aucun rapport</a></h4>                  
+        {% endfor%}
+        
+        
+
+
+    
+   </div>
+   {% include "pagination.html" %}
+</div>
+
+
+{% endblock %}

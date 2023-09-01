@@ -1,0 +1,64 @@
+
+{% load static %}
+<div class="container">
+<nav class="navbar navbar-expand-md navbar-danger  bg-primary me-2">
+  
+  
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2">
+        
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'home' %}"><img src="{% static 'img/home.png' %} "> ACCEUIL</a>
+        </li>
+        
+        {% if user.is_authenticated %}
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;"href="/admin/"><img class="me-2" src="{% static 'img/admino.png' %} ">ADMIN </a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'index' %}"><img src="{% static 'img/maino.png' %}">   SERVICES
+              </a>
+        </li>
+        
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'caisse' %}"><img src="{% static 'img/caisso.jpg' %}">  CAISSE</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'display111' %}"><img src="{% static 'img/engrai.jpeg' %}">
+             ENGRAIS</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'display1111' %}"><img src="{% static 'img/danger.png' %}">
+             PESTICIDES</a>
+        </li>
+        <li class="nav-item me-2">
+          <a class="nav-link active me-2" style="color:yellow;font-size:large;" href="{% url 'my-articles' %}"><img src="{% static 'img/rapo.png' %} "> RAPPORTS</a>
+        </li>
+        <li class="nav-item me-5">
+          <a class="nav-link active me-5" style="color:yellow;font-size:large;" href=""><img src=" "> </a>
+        </li>
+        
+        <span><h4 class="text-link me-5 mt-5"style="color:yellow;font-size:large;"><img class="me-2" src="{% static 'img/hi.png' %} ">{{user.username}}</h4></span>
+        <li class="nav-item me-5 mt-5 col mb-2">
+          <a href="{% url 'logout' %}" class="btn btn-danger col-md-12 " style="height: 35px;"><strong>Déconnexion</strong></a> 
+        </li>
+         
+      </ul>
+      
+    
+      {% else %}
+      <div class="mt-5 col-md-12 col text-center">
+      <a href="{% url 'login-blog' %}" class="btn btn-danger " style="height: 35px;"><strong>Connexion</strong></a>
+    </div>
+        
+        
+              {% endif %}
+      
+    </div>
+  </div>
+</nav>
+</div>
